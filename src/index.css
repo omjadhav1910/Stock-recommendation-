@@ -1,13 +1,218 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.stock-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.stock-detail-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-detail-box p {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+.price {
+  background-color: #f0f8ff;
+}
+
+.change {
+  background-color: #e6e6fa;
+}
+
+.volume {
+  background-color: #f5f5dc;
+}
+
+.market-cap {
+  background-color: #ffe4e1;
+}
+
+.pe-ratio {
+  background-color: #fafad2;
+}
+
+.dividend-yield {
+  background-color: #d3ffce;
+}
+
+.recommendation {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chart-container {
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+/* Centering and styling the stock details container */
+.stock-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styling the stock detail box */
+.stock-detail-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling each stock detail item */
+.stock-detail-box p {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+/* Adding background colors to each stock detail item */
+.price {
+  background-color: #f0f8ff;
+}
+
+.change {
+  background-color: #e6e6fa;
+}
+
+.volume {
+  background-color: #f5f5dc;
+}
+
+.market-cap {
+  background-color: #ffe4e1;
+}
+
+.pe-ratio {
+  background-color: #fafad2;
+}
+
+.dividend-yield {
+  background-color: #d3ffce;
+}
+
+/* Styling the recommendation text */
+.recommendation {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Styling the chart container */
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+.stock-details-page {
+  max-width: 600px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.stock-details-page h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Each paragraph with different colors */
+.stock-details-page p {
+  font-size: 18px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stock-details-page p:nth-child(2) {
+  background-color: #e3f2fd;
+}
+
+.stock-details-page p:nth-child(3) {
+  background-color: #ffebee;
+}
+
+.stock-details-page p:nth-child(4) {
+  background-color: #e8f5e9;
+}
+
+.stock-details-page p:nth-child(5) {
+  background-color: #fff3e0;
+}
+
+.stock-details-page p:nth-child(6) {
+  background-color: #f3e5f5;
+}
+
+.stock-details-page p:nth-child(7) {
+  background-color: #e0f7fa;
+}
+
+/* Number box inside each paragraph */
+.stock-details-page p .number-box {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for paragraphs */
+.stock-details-page p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .stock-detail-box {
+    width: 90%;
+    padding: 10px;
+  }
+  
+  .stock-detail-box p {
+    margin: 5px 0;
+    padding: 8px;
+  }
+  
+  .chart-container {
+    width: 100%;
+  }
 }

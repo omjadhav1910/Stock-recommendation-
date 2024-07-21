@@ -1,0 +1,114 @@
+{
+  "stocks": [
+    {
+      "symbol": "RELIANCE",
+      "name": "Reliance Industries",
+      "price": 2500,
+      "change": "+1.5%",
+      "volume": 5000000,
+      "marketCap": "15T",
+      "peRatio": 25.3,
+      "dividendYield": "1.2%"
+    },
+    {
+      "symbol": "TCS",
+      "name": "Tata Consultancy Services",
+      "price": 3400,
+      "change": "-0.5%",
+      "volume": 4000000,
+      "marketCap": "12T",
+      "peRatio": 30.1,
+      "dividendYield": "1.0%"
+    },
+    {
+      "symbol": "HDFC",
+      "name": "HDFC Bank",
+      "price": 1600,
+      "change": "+0.2%",
+      "volume": 3000000,
+      "marketCap": "8T",
+      "peRatio": 22.7,
+      "dividendYield": "0.8%"
+    },
+    {
+      "symbol": "INFY",
+      "name": "Infosys",
+      "price": 1700,
+      "change": "+2.1%",
+      "volume": 3500000,
+      "marketCap": "6.5T",
+      "peRatio": 28.5,
+      "dividendYield": "1.5%"
+    },
+    {
+      "symbol": "SBIN",
+      "name": "State Bank of India",
+      "price": 600,
+      "change": "-1.2%",
+      "volume": 6000000,
+      "marketCap": "5T",
+      "peRatio": 15.2,
+      "dividendYield": "2.0%"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "name": "Bharti Airtel",
+      "price": 740,
+      "change": "+0.7%",
+      "volume": 2000000,
+      "marketCap": "4.5T",
+      "peRatio": 35.6,
+      "dividendYield": "0.6%"
+    },
+    {
+      "symbol": "HCLTECH",
+      "name": "HCL Technologies",
+      "price": 1200,
+      "change": "-0.9%",
+      "volume": 2500000,
+      "marketCap": "3.8T",
+      "peRatio": 27.4,
+      "dividendYield": "1.3%"
+    },
+    {
+      "symbol": "WIPRO",
+      "name": "Wipro",
+      "price": 600,
+      "change": "+1.8%",
+      "volume": 1800000,
+      "marketCap": "2.9T",
+      "peRatio": 33.2,
+      "dividendYield": "1.1%"
+    },
+    {
+      "symbol": "ADANIGREEN",
+      "name": "Adani Green Energy",
+      "price": 2100,
+      "change": "+3.5%",
+      "volume": 1500000,
+      "marketCap": "7T",
+      "peRatio": 40.1,
+      "dividendYield": "0.5%"
+    },
+    {
+      "symbol": "MARUTI",
+      "name": "Maruti Suzuki",
+      "price": 8000,
+      "change": "-1.0%",
+      "volume": 1200000,
+      "marketCap": "10T",
+      "peRatio": 20.0,
+      "dividendYield": "1.4%"
+    },
+    {
+      "symbol": "TATAMOTORS",
+      "name": "Tata Motors",
+      "price": 550,
+      "change": "+2.4%",
+      "volume": 2500000,
+      "marketCap": "3.2T",
+      "peRatio": 18.9,
+      "dividendYield": "1.7%"
+    }
+  ]
+}

@@ -1,38 +1,227 @@
-.App {
+/* src/styles.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* HomePage styles */
+.home-page {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.home-page h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.home-page form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.home-page input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+  max-width: 100%;
+}
+
+.home-page button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.home-page button:hover {
+  background-color: #0056b3;
+}
+
+/* StockDetailsPage styles */
+.stock-details-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.stock-details-page h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.stock-details-page p {
+  font-size: 18px;
+  margin: 10px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.stock-details-page p span {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Error and loading states */
+.error, .loading {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ff4d4d; /* Red for errors */
+}
+
+.loading {
+  color: #333;
+}
+.stock-home{
+  display: flex;
+  width: 100vw;
+
+  /* display: block; */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.search-form{
+  /* width: 10vw; */
+  height: 1vh;
+
+}
+.search-input{
+  width: 15vw;
+  padding-left: 1vw;
+  height: 4vh;
+  box-shadow: 1px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 43px 9px rgba(0, 0, 0, 0.2);
+}
+/* button {
+  width: 5vw;
+  padding-left: 1vw;
+  margin-left: 1vw;
+  height: 4vh;
+  box-shadow: 0px 0px 43px 9px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 10px;
+  
+  
+
+} */
+button {
+  border-radius: 10px;
+  background-color: #5ca1e1;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 20px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+button{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 9px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover{
+  padding-right: 24px;
+  padding-left:8px;
+}
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+/* Centering and styling the app container */
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styling the search box */
+.search-box {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the stock list container */
+.stock-list {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Styling each stock item */
+.stock-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Adding hover effect to stock item */
+.stock-item:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .search-box {
+    width: 90%;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .stock-item {
+    width: 100%;
+    max-width: none;
   }
 }

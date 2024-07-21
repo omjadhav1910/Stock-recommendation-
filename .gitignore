@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+stock-analysis-app/node_modules
+stock-analysis-app/package-lock.json
+stock-analysis-app/package.json
