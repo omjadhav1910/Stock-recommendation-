@@ -1,68 +1,70 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
+import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import stockData from '../db.json'; // Import the JSON data
 import '../index.css';
+
+ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
 
 const StockDetailsPage = () => {
   const { symbol } = useParams();
-  const [stockData, setStockData] = useState(null);
-  const [chartData, setChartData] = useState(null);
-  const [recommendation, setRecommendation] = useState('');
+  const stock = stockData.stocks.find(s => s.symbol.toLowerCase() === symbol.toLowerCase());
 
-  useEffect(() => {
-    const fetchStockData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5001/stocks`);
-        const stock = response.data.find(stock => stock.symbol.toLowerCase() === symbol.toLowerCase());
-        setStockData(stock);
-
-        // Calculate recommendation
-        if (stock.peRatio < 20 && parseFloat(stock.dividendYield) > 1) {
-          setRecommendation('You can buy this stock.');
-        } else {
-          setRecommendation('This stock is not recommended for buying based on current criteria.');
-        }
-
-        // Set up chart data
-        setChartData({
-          labels: ['Price', 'Change', 'Volume', 'Market Cap', 'P/E Ratio', 'Dividend Yield'],
-          datasets: [{
-            label: stock.name,
-            data: [stock.price, parseFloat(stock.change), stock.volume, parseFloat(stock.marketCap), stock.peRatio, parseFloat(stock.dividendYield)],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-          }]
-        });
-      } catch (error) {
-        console.error('Error fetching stock data', error);
+  // Dummy historical data for the chart
+  const historicalData = {
+    labels: ['2024-07-01', '2024-07-02', '2024-07-03', '2024-07-04', '2024-07-05'], // Replace with actual dates
+    datasets: [
+      {
+        label: 'Stock Price',
+        data: [stock.price - 10, stock.price, stock.price + 20, stock.price - 5, stock.price + 10], // Replace with actual data
+        borderColor: '#4caf50',
+        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+        fill: true,
       }
-    };
+    ]
+  };
 
-    fetchStockData();
-  }, [symbol]);
+  // Function to determine if the stock meets the criteria for purchase
+  const canBuyStock = () => {
+    if (!stock) return false;
+    const peRatioLimit = 25;
+    const dividendYieldLimit = 1.5;
+    const volumeLimit = 1000000;
 
-  if (!stockData) return <div>Loading...</div>;
+    return (
+      stock.peRatio < peRatioLimit &&
+      parseFloat(stock.dividendYield) > dividendYieldLimit &&
+      stock.volume > volumeLimit
+    );
+  };
+
+  // Generate recommendation message based on the stock analysis
+  const recommendationMessage = canBuyStock() 
+    ? "You can buy this stock based on the current analysis." 
+    : "You should not buy this stock based on the current analysis.";
+
+  if (!stock) {
+    return <div className="stock-details-container">Stock not found</div>;
+  }
 
   return (
     <div className="stock-details-container">
-      <h1>{stockData.name} ({stockData.symbol})</h1>
-      <div className="stock-detail-box">
-        <p className="price">Price: {stockData.price}</p>
-        <p className="change">Change: {stockData.change}</p>
-        <p className="volume">Volume: {stockData.volume}</p>
-        <p className="market-cap">Market Cap: {stockData.marketCap}</p>
-        <p className="pe-ratio">P/E Ratio: {stockData.peRatio}</p>
-        <p className="dividend-yield">Dividend Yield: {stockData.dividendYield}</p>
+      <h1>{stock.name} ({stock.symbol})</h1>
+      <div className="stock-info">
+        <p className="price">Price: <span>{stock.price}</span></p>
+        <p className="change">Change: <span>{stock.change}</span></p>
+        <p className="volume">Volume: <span>{stock.volume}</span></p>
+        <p className="market-cap">Market Cap: <span>{stock.marketCap}</span></p>
+        <p className="pe-ratio">P/E Ratio: <span>{stock.peRatio}</span></p>
+        <p className="dividend-yield">Dividend Yield: <span>{stock.dividendYield}</span></p>
       </div>
-      <p className="recommendation">{recommendation}</p>
-      {chartData && (
-        <div className="chart-container">
-          <Line data={chartData} />
-        </div>
-      )}
+      <div className={`recommendation ${canBuyStock() ? 'recommend' : 'not-recommend'}`}>
+        {recommendationMessage}
+      </div>
+      <div className="chart-container">
+        <Line data={historicalData} />
+      </div>
     </div>
   );
 };
